@@ -6,7 +6,10 @@ class Validator:
 
     def __init__(self) -> None:
         for name, value in self.__annotations__.items():
-            self.__dict__[name] = self.__getattribute__(name)
+            try:
+                self.__dict__[name] = self.__getattribute__(name)
+            except AttributeError:
+                self.__dict__[name] = None
             self.__hint__[name] = self.generic_parse_annotations(value)
 
     def __setattr__(self, __name: str, __value: __builtins__) -> None:
