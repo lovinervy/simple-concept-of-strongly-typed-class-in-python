@@ -71,11 +71,6 @@ class Validator:
         else:
             raise TypeError(f'Type "{__type}" is not supported')
         return parsed
-
-    def is_generic(self, __type):
-        if __type.__class__.__module__ == "types":
-            return True
-        return False
     
     def is_valid(self, __name: str, __value: __builtins__) -> bool:
         expected_hints = self.__hint__[__name]
