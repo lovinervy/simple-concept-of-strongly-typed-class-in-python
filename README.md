@@ -22,8 +22,9 @@ def examples():
 if __name__ == "__main__":
     f = Foo()
     f.name = "Max"            # print(f.name) -> Max
-    f.code = "123"            # -> ValueError: 'id' must be a '<class 'int'>', was <class 'str'>
+    f.code = "123"            # ValueError: 'id' must be a '<class 'int'>', was <class 'str'>
     f.address['city'] = 123   # print(f.address) -> {'city': 123}   <-- its works because input in "dict" avoiding Validator.__setattr__
     f.func = example          # print(f.func()) -> 'hello'
+    f.foo = 'ads'             # AttributeError: Attribute foo not in class 'Foo'
     
 ```
